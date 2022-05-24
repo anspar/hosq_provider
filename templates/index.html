@@ -1,0 +1,24 @@
+{{#unless release}}
+{{live_update}}
+{{inject_gateway}}
+{{import_js_web "https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"}}
+{{web_component "https://github.com/anspar/wallet/releases/download/v0.12/build.html"}}
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+        await HOSQ_PROVIDER.setup()
+    })
+</script>
+{{/unless}}
+
+{{import_css "static/css/index.css"}}
+<div id="hosq-provider-div">
+    <input type="number" value="" step="1" min="1">
+    <span>Not Selected</span>
+    <button>Select</button>
+</div>
+
+<script>
+    const HOSQ_ABI = {{ import_json "static/HOSQ_ABI.json"}};
+</script>
+{{import_js "static/js/index.js"}}

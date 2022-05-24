@@ -1,0 +1,35 @@
+#hosq-provider-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0a9;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 100vh;
+    border-style: none;
+}
+
+#hosq-provider-div *{
+    margin: 0% 1%;
+    font-size: 1rem;
+}
+
+#hosq-provider-div input, #hosq-provider-div button {
+    width: 25%;
+    border-radius: 100vh;
+    border-style: none;
+}
+
+#hosq-provider-div button{
+    cursor: pointer;
+    background-color: white;
+}
+
+#hosq-provider-div button:hover{
+    transform: scaleZ(1.2);
+}
+
+/* body{
+    background-color: black;
+} */

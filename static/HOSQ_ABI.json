@@ -1,0 +1,487 @@
+{
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "creator",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "block_price",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "api_url",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                }
+            ],
+            "name": "AddProvider",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "UpdateProviderAddress",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "url",
+                    "type": "string"
+                }
+            ],
+            "name": "UpdateProviderApiUrl",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "price",
+                    "type": "uint256"
+                }
+            ],
+            "name": "UpdateProviderBlockPrice",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                }
+            ],
+            "name": "UpdateProviderName",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "donor",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "end_block",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "provider_id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "cid",
+                    "type": "string"
+                }
+            ],
+            "name": "UpdateValidBlock",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_api_url",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_block_price",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_name",
+                    "type": "string"
+                }
+            ],
+            "name": "add_pinning_service",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function",
+            "payable": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_cid",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_num_blocks",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "add_new_valid_block",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function",
+            "payable": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_cid",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "get_valid_block",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_blocks",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "get_total_price_for_blocks",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_price_wei",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "update_block_price",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_url",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "update_api_url",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_new",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "update_address",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_new",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "update_name",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "get_per_block_price",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_provider_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "get_provider_details",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "address",
+                            "name": "account",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "block_price",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "api_url",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                        }
+                    ],
+                    "internalType": "struct IpfsManager.Provider",
+                    "name": "",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        },
+        {
+            "inputs": [],
+            "name": "withdraw",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint24",
+                    "name": "_fee",
+                    "type": "uint24"
+                },
+                {
+                    "internalType": "uint24",
+                    "name": "_decimals",
+                    "type": "uint24"
+                }
+            ],
+            "name": "update_dev_fee",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "get_dev_fee",
+            "outputs": [
+                {
+                    "internalType": "uint24",
+                    "name": "",
+                    "type": "uint24"
+                },
+                {
+                    "internalType": "uint24",
+                    "name": "",
+                    "type": "uint24"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "fee",
+                    "type": "uint256"
+                }
+            ],
+            "name": "update_add_provider_fee",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "get_add_provider_fee",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "constant": true
+        }
+    ],
+    "networks": {
+        "3": {
+            "events": {},
+            "links": {},
+            "address": "0x22531058d16577a978097979aE7704FDBC118e2A",
+            "transactionHash": "0x3bacb69f03939418b66e52403e6c8a11558bd00bfc6255e2bcae0f5dc8b42aba"
+        },
+        "4": {
+            "events": {},
+            "links": {},
+            "address": "0xe5c95cB22915865BBfF581099b284b14808D3E2a",
+            "transactionHash": "0x909c814cbb14a43b5ec473646ea55e0f00458bff0599e054cca9b610fb91447b"
+        },
+        "1337": {
+            "events": {},
+            "links": {},
+            "address": "0x12F2df43A6385B8D5D6730822A09a2D6c42b61c0",
+            "transactionHash": "0xb146067e6512519dd7aaad40ffd71a6c73bd8e77b50ae4eb049266fbef3a022c"
+        },
+        "80001": {
+            "events": {},
+            "links": {},
+            "address": "0x918D9B59495AF5bC465283224Ed9C749803c13aa",
+            "transactionHash": "0x4b9fbef27f801110bbca38258ad1222c6424f641e47e82477f99595c7dadbce0"
+        }
+    }
+}
