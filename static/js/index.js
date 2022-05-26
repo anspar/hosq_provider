@@ -1,3 +1,4 @@
+let IPFS_GATEWAY = null;
 const HOSQ_PROVIDER = {
     contract: null,
     provider: null,
@@ -34,11 +35,8 @@ const HOSQ_PROVIDER = {
             }
             document.querySelector("#hosq-provider-div input").value = id;
             document.querySelector("#hosq-provider-div span").textContent = provider[0][3].includes("<") ? "Invalid Name" : provider[0][3];
-            provider[0][2] = provider[0][2] + (provider[0][2].endsWith("/") ? "gateway" : "/gateway");
-            if (typeof IPFS_GATEWAY !== "undefined") {
-                IPFS_GATEWAY = provider[0][2];
-            }
-
+            IPFS_GATEWAY = provider[0][2] + (provider[0][2].endsWith("/") ? "gateway" : "/gateway");
+            
             this.provider = provider[0];
             localStorage.setItem("hosq_provider", id);
             return true
@@ -56,7 +54,7 @@ const HOSQ_PROVIDER = {
     },
     get: async function (cid) {
         if (! await this.is_ready()) return null;
-        return await fetch(`${this.provider[0][2]}/${cid}`)
+        return await fetch(`${IPFS_GATEWAY}/${cid}`)
     },
     upload: async function (data, json, dir, progress=null) {
         if (! await this.is_ready()) return null;
@@ -122,4 +120,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         alert("WALLET Object Not found")
         return
     }
+
+    setInterval(async ()=>{
+        if (IPFS_GATEWAY===null) return;
+        document.querySelectorAll('[ipfs]').forEach((e, i)=>{
+            e.setAttribute('src', `${IPFS_GATEWAY}/${e.getAttribute('ipfs')}`);
+            e.removeAttribute('ipfs');
+        })
+    }, 1000)
 })
