@@ -111,7 +111,7 @@ const HOSQ_PROVIDER = {
             body.append("file2", new Blob([JSON.stringify(info)]), "info.json")
         }
 
-        this.upload(body, json, true, progress)
+        return await this.upload(body, json, true, progress)
     }
 }
 
