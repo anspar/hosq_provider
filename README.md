@@ -1,6 +1,6 @@
 # Hosq Provider
 
-## A ipfs storage contract component for [Arag](https://github.com/anspar/arag) dapps.
+## IPFS storage contract component for [Arag](https://github.com/anspar/arag) dapps.
 
 ![release](https://github.com/anspar/hosq_provider/actions/workflows/release.yml/badge.svg?branch=main)
 
