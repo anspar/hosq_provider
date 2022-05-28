@@ -27,21 +27,26 @@ const HOSQ_PROVIDER = {
     },
     select_provider: async function (id) {
         if (!await this.is_ready()) return;
+        let hp_div = document.querySelector("#hosq-provider-div");
+        hp_div.classList.add("loading");
         try {
-            let provider = await this.contract.functions.get_provider_details(id)
-            if (provider[0][2] === "") {
+            let provider = await this.contract.get_provider_details(id)
+            if (provider[2] === "") {
                 alert(`Invalid Provider "${id}"`);
+                hp_div.classList.remove("loading");
                 return false
             }
             document.querySelector("#hosq-provider-div input").value = id;
-            document.querySelector("#hosq-provider-div span").textContent = provider[0][3].includes("<") ? "Invalid Name" : provider[0][3];
-            IPFS_GATEWAY = provider[0][2] + (provider[0][2].endsWith("/") ? "gateway" : "/gateway");
+            document.querySelector("#hosq-provider-div span").textContent = provider[3].includes("<") ? "Invalid Name" : provider[3];
+            IPFS_GATEWAY = provider[2] + (provider[2].endsWith("/") ? "gateway" : "/gateway");
             
-            this.provider = provider[0];
+            this.provider = provider;
             localStorage.setItem("hosq_provider", id);
+            hp_div.classList.remove("loading");
             return true
         } catch (e) {
             console.error(`Failed to select provider '${id}'`, e);
+            hp_div.classList.remove("loading");
             return false
         }
     },

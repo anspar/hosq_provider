@@ -1,7 +1,8 @@
 {{#unless release}}
 {{live_update}}
-{{import_js_web "https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"}}
-{{web_component "https://github.com/anspar/wallet/releases/download/v0.14/build.html"}}
+{{web_component "https://github.com/anspar/arag_common_libs/releases/download/v0.1/build.html"}}
+<span class="ar-theme-switch m-5"></span>
+{{web_component "https://github.com/anspar/wallet/releases/download/v0.18/build.html"}}
 
 <script>
     document.addEventListener("DOMContentLoaded", async function () {
@@ -12,10 +13,10 @@
 {{/unless}}
 
 {{import_css "static/css/index.css"}}
-<div id="hosq-provider-div">
+<div id="hosq-provider-div" class="ar-shadow">
     <input type="number" value="" step="1" min="1">
     <span>Not Selected</span>
-    <button>Select</button>
+    <button class="ar-btn-primary">Select</button>
 </div>
 
 <script>

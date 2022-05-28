@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0a9;
+    background-color: var(--ar-dark-dim);
     width: fit-content;
     height: fit-content;
     padding: 5px;
@@ -20,16 +20,3 @@
     border-radius: 100vh;
     border-style: none;
 }
-
-#hosq-provider-div button{
-    cursor: pointer;
-    background-color: white;
-}
-
-#hosq-provider-div button:hover{
-    transform: scaleZ(1.2);
-}
-
-/* body{
-    background-color: black;
-} */

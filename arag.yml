@@ -1,5 +1,5 @@
 ipfs_gateway: https://ipfs.anspar.io/gateway
 port: 11224
 dependencies:
-  - https://cdn.ethers.io/lib/ethers-5.0.umd.min.js
-  - https://github.com/anspar/wallet/releases/download/v0.14/build.html
+  - https://github.com/anspar/arag_common_libs/releases/download/v0.1/build.html
+  - https://github.com/anspar/wallet/releases/download/v0.18/build.html
